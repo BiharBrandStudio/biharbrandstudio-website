@@ -43,7 +43,7 @@
     <p style="color:var(--gold); font-size:20px; font-family:'Playfair Display'">Bihar ka Dil. India ka Brand.</p>
     
     <div class="btn-container">
-        <button class="btn-primary" onclick="openPopup()">Book Free Consultation</button>
+        <button class="btn-primary" onclick="openPopup()">Book Consultation</button>
         <a href="tel:+917667813830" class="btn-outline">Call Us: +91 7667813830</a>
     </div>
 </header>
@@ -53,6 +53,7 @@
     <div class="grid">
         <div class="card">🔥 Branding & Identity Design</div>
         <div class="card">📈 Digital Marketing & Growth</div>
+        <div class="card">🌐 Social Media Managament Services</div>
         <div class="card">🌐 Website Development</div>
         <div class="card">📊 Branding Consulting</div>
     </div>
