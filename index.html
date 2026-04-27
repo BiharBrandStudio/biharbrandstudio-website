@@ -96,5 +96,41 @@
     document.getElementById('bookingPopup').style.display = 'none';
   }
 </script>
+    <div id="bookingPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(26,10,0,0.95); z-index:9999; display:flex; align-items:center; justify-content:center;">
+  <div style="background:var(--cream); width:90%; max-width:450px; padding:40px; border-radius:8px; position:relative; border-top: 5px solid var(--saffron);">
+    
+    <button onclick="closePopup()" style="position:absolute; top:15px; right:15px; background:none; border:none; font-size:24px; cursor:pointer; color:var(--earth);">×</button>
+    
+    <h2 style="font-family:'Playfair Display', serif; color:var(--ink); margin-bottom:10px;">Book Consultation</h2>
+    <p style="color:var(--muted); font-size:14px; margin-bottom:25px;">Leave your details and we will reach out to you.</p>
+
+    <form name="consultation-request" method="POST" data-netlify="true">
+      <input type="text" name="name" placeholder="Your Name" required style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #ddd; border-radius:4px;">
+      <input type="tel" name="phone" placeholder="Phone Number" required style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #ddd; border-radius:4px;">
+      <button type="submit" style="width:100%; background:var(--saffron); color:white; padding:14px; border:none; border-radius:4px; font-weight:bold; cursor:pointer; text-transform:uppercase;">Submit Request</button>
+    </form>
+
+    <div style="margin-top:20px; text-align:center;">
+      <p style="font-size:12px; color:var(--muted);">Or reach us instantly via:</p>
+      <a href="https://wa.me/917667813830" style="color:#25D366; text-decoration:none; font-weight:bold; display:block; margin-top:5px;">WhatsApp: +91 7667813830</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openPopup() {
+    document.getElementById('bookingPopup').style.display = 'flex';
+  }
+  function closePopup() {
+    document.getElementById('bookingPopup').style.display = 'none';
+  }
+  // This line ensures it starts hidden
+  document.getElementById('bookingPopup').style.display = 'none';
+</script>
 </body>
 </html>
+<div class="hero-cta">
+  <button class="btn-primary" onclick="openPopup()">Book Free Consultation</button>
+  
+  <a href="tel:+917667813830" class="btn-outline" style="text-decoration: none; display: inline-block;">Call Us Directly</a>
+</div>
