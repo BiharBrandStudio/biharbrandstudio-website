@@ -29,7 +29,7 @@
         <h1>BiharBrand Studio</h1>
         <p>Bihar ka Dil. India ka Brand.</p>
         <br>
-        <a class="cta" href="#contact">Book Free Consultation</a>
+       <button onclick="openPopup()" style="cursor:pointer;">Book Free Consultation</button>
     </header>
 
     <section>
@@ -74,5 +74,27 @@
 
     <a class="whatsapp" href="https://wa.me/917667813830" target="_blank">Chat on WhatsApp</a>
 
+    <div id="bookingPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000;">
+  <div style="background:white; width:90%; max-width:500px; margin:100px auto; padding:20px; border-radius:10px; text-align:center;">
+    <h2>Book Your Consultation</h2>
+    <p>Fill in your details and we will call you back.</p>
+    
+    <form name="consultation" method="POST" data-netlify="true">
+      <input type="text" name="name" placeholder="Your Name" required style="width:100%; margin-bottom:10px; padding:10px;">
+      <input type="tel" name="phone" placeholder="Phone Number" required style="width:100%; margin-bottom:10px; padding:10px;">
+      <button type="submit" style="background:#ff6600; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;">Submit Request</button>
+    </form>
+    
+    <button onclick="closePopup()" style="margin-top:15px; background:none; border:none; color:grey; cursor:pointer;">[ Close ]</button>
+  </div>
+</div>
+    <script>
+  function openPopup() {
+    document.getElementById('bookingPopup').style.display = 'block';
+  }
+  function closePopup() {
+    document.getElementById('bookingPopup').style.display = 'none';
+  }
+</script>
 </body>
 </html>
