@@ -949,21 +949,43 @@
           <option>₹60,000+</option>
         </select>
       </div>
+     <div class="contact-form-box fade-in">
+  <h3 style="font-family:'Playfair Display',serif; font-size:1.3rem; margin-bottom:24px;">Send a Message</h3>
+  <form action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="01c405ae-9414-4857-8dc3-b749fdc3747c">
+    <input type="hidden" name="from_name" value="BiharBrand Studio Website">
+
+    <div class="form-group">
+      <label>Your Name</label>
+      <input type="text" name="name" placeholder="Rahul Kumar" required>
+    </div>
+    <div class="form-row">
       <div class="form-group">
-        <label>What's your biggest challenge right now?</label>
-        <textarea id="m_challenge" placeholder="e.g. No online presence, need more customers, want to rebrand..." style="min-height:80px;"></textarea>
+        <label>Email / Brand ID</label>
+        <input type="email" name="email" placeholder="you@yourbrand.com" required>
       </div>
       <div class="form-group">
-        <label>How did you hear about us?</label>
-        <select id="m_source">
-          <option value="">Select...</option>
-          <option>Instagram / Facebook</option>
-          <option>Google Search</option>
-          <option>WhatsApp / Referral</option>
-          <option>Friend / Word of Mouth</option>
-          <option>Other</option>
-        </select>
+        <label>WhatsApp Number</label>
+        <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required>
       </div>
+    </div>
+    <div class="form-group">
+      <label>Service Needed</label>
+      <select name="service" required>
+        <option value="">Select a service...</option>
+        <option>Branding & Identity Design</option>
+        <option>Digital Marketing & Growth</option>
+        <option>Website Development</option>
+        <option>Audit & Financial Consulting</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Message</label>
+      <textarea name="message" placeholder="Tell us about your business..." required></textarea>
+    </div>
+    <button type="submit" class="btn-primary" style="width:100%;">Send Message →</button>
+  </form>
+</div>
       <div class="modal-footer-btns">
         <button class="btn-sm btn-sm-secondary" onclick="goStep(2)">← Back</button>
         <button class="btn-sm btn-sm-primary" onclick="submitModal()">Submit & Book Call 🚀</button>
@@ -1044,34 +1066,31 @@
     }
     showStep(n);
   }
+function submitModal() {
+  const formData = new FormData();
+  formData.append("access_key", "01c405ae-9414-4857-8dc3-b749fdc3747c");
+  formData.append("subject", "New Consultation Lead from BiharBrand Website");
+  
+  formData.append("Name", document.getElementById('m_name').value);
+  formData.append("Phone", document.getElementById('m_phone').value);
+  formData.append("City", document.getElementById('m_city').value);
+  formData.append("Brand", document.getElementById('m_brand').value);
+  formData.append("Service", document.getElementById('m_service').value);
+  formData.append("Challenge", document.getElementById('m_challenge').value);
 
-  function submitModal() {
-    if (!document.getElementById('m_service').value) { alert('Please select a service you are interested in.'); return; }
-
-    // Collect all data
-    const data = {
-      name: document.getElementById('m_name').value,
-      phone: document.getElementById('m_phone').value,
-      city: document.getElementById('m_city').value,
-      brand: document.getElementById('m_brand').value,
-      email: document.getElementById('m_email').value,
-      social: document.getElementById('m_social').value,
-      website: document.getElementById('m_website').value,
-      bizType: document.getElementById('m_biztype').value,
-      service: document.getElementById('m_service').value,
-      budget: document.getElementById('m_budget').value,
-      challenge: document.getElementById('m_challenge').value,
-      source: document.getElementById('m_source').value,
-    };
-
-    console.log('Consultation Form Data:', data);
-
-    // Hide steps, show success
-    document.querySelectorAll('.modal-step').forEach(s => s.style.display = 'none');
-    document.querySelector('.modal-header').style.display = 'none';
-    document.querySelector('.step-indicator').style.display = 'none';
-    document.getElementById('successScreen').classList.add('show');
-  }
+  fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    body: formData
+  }).then(response => {
+    if (response.ok) {
+      document.querySelectorAll('.modal-step').forEach(s => s.style.display = 'none');
+      document.querySelector('.modal-header').style.display = 'none';
+      document.querySelector('.step-indicator').style.display = 'none';
+      document.getElementById('successScreen').classList.add('show');
+    }
+  });
+}
+  
 
   // Contact form
   function submitContactForm() {
