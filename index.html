@@ -997,46 +997,37 @@
     </div>
 
     <!-- Success Screen -->
-    <div class="success-screen" id="successScreen">
-      <div class="success-icon">🎉</div>
-      <h3>You're All Set!</h3>
-      <p style="margin-bottom:12px;">Thank you! We'll contact you within <strong style="color:var(--saffron)">24 hours</strong> to schedule your free consultation call.</p>
-      <p style="margin-bottom:28px; color:var(--muted); font-size:.85rem;">Meanwhile, you can also reach us directly on WhatsApp.</p>
-      <a href="https://wa.me/917667813830?text=Hi%20BiharBrand%20Studio!%20I%20just%20booked%20a%20free%20consultation." target="_blank" class="btn-primary" style="display:inline-block; margin-bottom:12px;">
-        💬 Chat on WhatsApp Now
-      </a>
-      <br>
-      <button class="btn-sm btn-sm-secondary" onclick="closeModal()" style="margin-top:12px;">Close</button>
+   <div class="modal-step" id="step3">
+    <div class="form-group">
+        <label>Which service are you interested in? *</label>
+        <select id="m_service">
+            <option value="">Select a service...</option>
+            <option>Branding & Identity Design</option>
+            <option>Digital Marketing & Growth</option>
+            <option>Website Development</option>
+            <option>Audit & Financial Consulting</option>
+            <option>Multiple / Full Package</option>
+            <option>Not Sure — Need Guidance</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label>Monthly Budget Range</label>
+        <select id="m_budget">
+            <option value="">Select budget...</option>
+            <option>Under ₹5,000</option>
+            <option>₹5,000 – ₹15,000</option>
+            <option>₹15,000 – ₹30,000</option>
+            <option>₹30,000 – ₹60,000</option>
+            <option>₹60,000+</option>
+        </select>
     </div>
 
-  </div>
+    <div class="modal-footer-btns">
+        <button class="btn-sm btn-sm-secondary" onclick="goStep(2)">← Back</button>
+        <button class="btn-sm btn-sm-primary" onclick="submitModal()">Submit & Book Call 🚀</button>
+    </div>
 </div>
-
-<script>
-  // ── HAMBURGER ──
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-
-  // ── SCROLL FADE ──
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  // ── MODAL ──
-  let currentStep = 1;
-
-  function openModal(e) {
-    if (e) e.preventDefault();
-    document.getElementById('modalOverlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
-    currentStep = 1;
-    showStep(1);
-    document.getElementById('successScreen').classList.remove('show');
-    document.querySelectorAll('.modal-step').forEach(s => s.style.display = '');
-    document.querySelector('.modal-header').style.display = '';
     document.querySelector('.step-indicator').style.display = '';
   }
 
