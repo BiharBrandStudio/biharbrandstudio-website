@@ -54,7 +54,7 @@
         <div class="card">🔥 Branding & Identity Design</div>
         <div class="card">📈 Digital Marketing & Growth</div>
         <div class="card">🌐 Website Development</div>
-        <div class="card">📊 Audit & Financial Consulting</div>
+        <div class="card">📊 Branding Consulting</div>
     </div>
 </section>
 
@@ -67,11 +67,18 @@
         <h2 style="font-family:'Playfair Display'; margin-top:20px">Book Consultation</h2>
         <p style="font-size:14px; color:#666">Tell us your brand goal and we'll reach out.</p>
         
-        <form name="consultation" method="POST" data-netlify="true">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="tel" name="phone" placeholder="Phone Number" required>
-            <button type="submit" class="btn-primary" style="width:100%; margin-top:10px; border-radius:8px">Submit Request</button>
-        </form>
+        <form action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="01c405ae-9414-4857-8dc3-b749fdc3747c">
+    
+    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+    
+    <input type="hidden" name="subject" value="New Free Consultation Request">
+
+    <button type="submit" class="btn-primary" style="width:100%; margin-top:10px; border-radius:8px">Submit Request</button>
+</form>
     </div>
 </div>
 
