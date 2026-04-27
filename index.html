@@ -644,7 +644,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#clients">Clients</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#" class="nav-cta" id="navConsult" onclick="openModal(event)">Free Consultation</a></li>
+    <li><a href="#" class="nav-cta" id="navConsult" onclick="openModal(event)">Consultation</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -659,7 +659,7 @@
     <h1>Build a Brand<br>That <span>Bihar</span> Remembers</h1>
     <p>Premium branding, digital marketing, and financial consulting — built for local businesses with a national vision.</p>
     <div class="hero-btns">
-      <a href="#" class="btn-primary" onclick="openModal(event)">📅 Book Free Consultation</a>
+      <a href="#" class="btn-primary" onclick="openModal(event)">📅 Book Consultation</a>
       <a href="#services" class="btn-outline">See Our Services</a>
     </div>
   </div>
@@ -672,28 +672,31 @@
   <p class="section-sub fade-in">From branding to business finance — we are your all-in-one growth partner in Bihar.</p>
 
   <div class="services-grid">
-    <div class="service-card fade-in">
+    <div class="service-card fade-in" onclick="openPitchDeck()" style="cursor: pointer;">
       <div class="service-icon">🔥</div>
       <h3>Branding & Identity Design</h3>
       <p>Logos, color systems, brand voice, and visual identity that make your business unmistakable in the market.</p>
     </div>
     <div class="service-card fade-in">
-      <div class="service-icon">📈</div>
+      <div class="service-card fade-in" onclick="openPitchDeck()" style="cursor: pointer;">
       <h3>Digital Marketing & Growth</h3>
       <p>Social media management, paid ads, SEO, and content strategy designed to drive real results for your brand.</p>
     </div>
-    <div class="service-card fade-in">
+    <div class="service-card fade-in" onclick="openPitchDeck()" style="cursor: pointer;">
       <div class="service-icon">🌐</div>
       <h3>Website Development</h3>
       <p>Fast, beautiful, and conversion-optimized websites that represent your brand and work around the clock.</p>
     </div>
-    <div class="service-card fade-in">
+    <div class="service-card fade-in" onclick="openPitchDeck()" style="cursor: pointer;">
       <div class="service-icon">📊</div>
       <h3> Financial Consulting</h3>
       <p>Business audits, financial consulting, compliance, and planning — for sustainable business growth.</p>
-      <h3> Social Media Managment services</h3>
-      <p>Brand Introduction, Post creation, and planning — for sustainable growth.</p>
     </div>
+      <div class="service-card fade-in" onclick="openPitchDeck()" style="cursor: pointer;">
+        <div class="service-icon">📊</div>
+        <h3> Social Media Managment services</h3>
+        <p>Brand Introduction, Post creation, and planning — for sustainable growth.</p>
+        </div>
   </div>
 </section>
 
@@ -1090,6 +1093,12 @@
 
   // Close modal on Escape
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+  <script>
+  function openPitchDeck() {
+    // This opens your pitch deck in a new small window (pop-up style)
+    window.open('biharbrand-pitchdeck.html', 'PitchDeck', 'width=800,height=900,scrollbars=yes');
+  }
 </script>
 </body>
 </html>
