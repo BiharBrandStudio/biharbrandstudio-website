@@ -1090,11 +1090,9 @@
     const service = document.getElementById('contactService').value;
     const msg = document.getElementById('contactMsg').value.trim();
 
-    if (!name || !email) {
-        alert('Please fill in at least your name and email.');
-        return;
-    }
-
+    if (!name || !email) {  alert('Please fill in at least your name and email.'); return; }
+    alert(`Thank you, ${name}! We've received your message and will respond within 24 hours. `);
+    
     // Send to Web3Forms
     fetch('https://api.web3forms.com/submit', {
         method: 'POST',
