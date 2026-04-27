@@ -1,183 +1,1089 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BiharBrand Studio — Bihar ka Dil. India ka Brand.</title>
-    
-    <link rel="icon" type="image/jpeg" href="logo.jpg">
+<link rel="icon" type="image/jpeg" href="logo.jpg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BiharBrand Studio — Bihar ka Dil. India ka Brand.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron: #FF6B00;
+    --saffron-light: #FF8C35;
+    --dark: #0D0D0D;
+    --dark2: #161616;
+    --dark3: #1E1E1E;
+    --gold: #D4AF37;
+    --white: #F5F0E8;
+    --muted: #999;
+    --green-wa: #25D366;
+  }
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <style>
-        :root {
-            --primary: #ff6600; /* BiharBrand Orange */
-            --dark: #0a0a0a;
-            --light: #f4f4f4;
-            --gray: #1a1a1a;
-        }
+  html { scroll-behavior: smooth; }
 
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--dark);
-            color: var(--light);
-            line-height: 1.6;
-        }
+  body {
+    background: var(--dark);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
 
-        /* Hero Section (BrandMentions Style) */
-        header {
-            padding: 100px 20px;
-            text-align: center;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
-        }
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(13,13,13,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,107,0,0.15);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 68px;
+  }
 
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-        }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--saffron);
+    letter-spacing: .5px;
+    text-decoration: none;
+  }
 
-        h1 span { color: var(--primary); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
 
-        .hero-p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            color: #ccc;
-        }
+  .nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: .88rem;
+    font-weight: 500;
+    letter-spacing: .3px;
+    opacity: .75;
+    transition: opacity .2s, color .2s;
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+  }
 
-        .cta-btn {
-            background: var(--primary);
-            color: white;
-            padding: 15px 35px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            display: inline-block;
-            transition: 0.3s;
-        }
+  .nav-links a:hover {
+    opacity: 1;
+    color: var(--saffron);
+    border-bottom-color: var(--saffron);
+  }
 
-        .cta-btn:hover { transform: scale(1.05); background: #e65c00; }
+  .nav-cta {
+    background: var(--saffron);
+    color: #fff !important;
+    padding: 8px 20px !important;
+    border-radius: 6px;
+    opacity: 1 !important;
+    border-bottom: none !important;
+    font-weight: 600 !important;
+    transition: background .2s !important;
+  }
 
-        /* Trust Bar (Ripuraj Style) */
-        .trust-bar {
-            background: var(--gray);
-            padding: 20px;
-            text-align: center;
-            border-top: 1px solid #333;
-            border-bottom: 1px solid #333;
-        }
+  .nav-cta:hover { background: var(--saffron-light) !important; }
 
-        /* Features Grid */
-        .section-padding { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 100px 5% 60px;
+    position: relative;
+    overflow: hidden;
+  }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 60% 40%, rgba(255,107,0,0.12) 0%, transparent 65%),
+                radial-gradient(ellipse at 20% 80%, rgba(212,175,55,0.07) 0%, transparent 55%);
+  }
 
-        .card {
-            background: var(--gray);
-            padding: 40px;
-            border-radius: 10px;
-            border: 1px solid #333;
-            transition: 0.3s;
-        }
+  .hero-badge {
+    display: inline-block;
+    border: 1px solid rgba(255,107,0,0.4);
+    color: var(--saffron);
+    font-size: .75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+    animation: fadeUp .8s ease both;
+  }
 
-        .card:hover { border-color: var(--primary); }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    animation: fadeUp .8s ease .15s both;
+  }
 
-        .card h3 { color: var(--primary); margin-top: 0; }
+  .hero h1 span { color: var(--saffron); }
 
-        /* Achievements (Stats) */
-        .stats {
-            background: var(--primary);
-            color: white;
-            padding: 60px 20px;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            text-align: center;
-        }
+  .hero p {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto 36px;
+    animation: fadeUp .8s ease .3s both;
+  }
 
-        .stat-item h2 { font-size: 3rem; margin: 0; }
+  .hero-btns {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    animation: fadeUp .8s ease .45s both;
+  }
 
-        /* Footer */
-        footer {
-            padding: 40px;
-            text-align: center;
-            background: #000;
-            border-top: 1px solid #333;
-        }
+  .btn-primary {
+    background: var(--saffron);
+    color: #fff;
+    padding: 14px 34px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: .95rem;
+    border: none;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s, background .2s;
+    text-decoration: none;
+    display: inline-block;
+  }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-        }
-    </style>
+  .btn-primary:hover {
+    background: var(--saffron-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(255,107,0,0.35);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 13px 34px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: .95rem;
+    border: 1px solid rgba(255,255,255,0.25);
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--saffron);
+    background: rgba(255,107,0,0.07);
+    color: var(--saffron);
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 90px 5%; }
+
+  .section-label {
+    font-size: .72rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .section-sub { color: var(--muted); max-width: 580px; margin-bottom: 56px; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--dark2); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+  }
+
+  .service-card {
+    background: var(--dark3);
+    border: 1px solid rgba(255,107,0,0.1);
+    border-radius: 14px;
+    padding: 32px 28px;
+    transition: transform .25s, border-color .25s, box-shadow .25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--saffron), var(--gold));
+    transform: scaleX(0);
+    transition: transform .3s;
+    transform-origin: left;
+  }
+
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255,107,0,0.35);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+  }
+
+  .service-icon { font-size: 2.2rem; margin-bottom: 18px; }
+
+  .service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .service-card p { font-size: .88rem; color: var(--muted); line-height: 1.7; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--dark); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  @media(max-width:768px){ .about-grid { grid-template-columns: 1fr; } }
+
+  .about-visual {
+    background: var(--dark3);
+    border: 1px solid rgba(255,107,0,0.15);
+    border-radius: 20px;
+    padding: 48px 36px;
+    text-align: center;
+  }
+
+  .about-stat { margin-bottom: 28px; }
+
+  .about-stat .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--saffron);
+    font-weight: 900;
+    display: block;
+  }
+
+  .about-stat .label { font-size: .82rem; color: var(--muted); letter-spacing: 1px; }
+
+  .divider { width: 40px; height: 1px; background: rgba(255,107,0,0.2); margin: 28px auto; }
+
+  .why-list { list-style: none; margin-top: 28px; }
+
+  .why-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: .92rem; color: var(--muted);
+  }
+
+  .why-list li span.check {
+    color: var(--saffron);
+    font-size: 1rem;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+
+  /* ── WHO WE WORK WITH ── */
+  #clients { background: var(--dark2); }
+
+  .client-tags {
+    display: flex; flex-wrap: wrap; gap: 14px; margin-top: 40px;
+  }
+
+  .tag {
+    background: var(--dark3);
+    border: 1px solid rgba(255,107,0,0.2);
+    color: var(--white);
+    padding: 10px 22px;
+    border-radius: 40px;
+    font-size: .88rem;
+    font-weight: 500;
+    transition: background .2s, border-color .2s, color .2s;
+  }
+
+  .tag:hover {
+    background: rgba(255,107,0,0.12);
+    border-color: var(--saffron);
+    color: var(--saffron);
+  }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--dark); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+
+  @media(max-width:768px){ .contact-grid { grid-template-columns: 1fr; } }
+
+  .contact-info-item {
+    display: flex; align-items: flex-start; gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .contact-icon {
+    width: 44px; height: 44px;
+    background: rgba(255,107,0,0.12);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    border: 1px solid rgba(255,107,0,0.2);
+  }
+
+  .contact-info-item h4 { font-size: .8rem; color: var(--muted); margin-bottom: 4px; letter-spacing: 1px; text-transform: uppercase; }
+  .contact-info-item p { font-size: .95rem; }
+  .contact-info-item a { color: var(--white); text-decoration: none; transition: color .2s; }
+  .contact-info-item a:hover { color: var(--saffron); }
+
+  .contact-form-box {
+    background: var(--dark3);
+    border: 1px solid rgba(255,107,0,0.12);
+    border-radius: 16px;
+    padding: 36px 32px;
+  }
+
+  .form-group { margin-bottom: 20px; }
+
+  .form-group label {
+    display: block;
+    font-size: .8rem;
+    color: var(--muted);
+    margin-bottom: 8px;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    background: var(--dark2);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: var(--white);
+    padding: 12px 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: .92rem;
+    outline: none;
+    transition: border-color .2s;
+    appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--saffron);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  @media(max-width:500px){ .form-row { grid-template-columns: 1fr; } }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080808;
+    border-top: 1px solid rgba(255,107,0,0.12);
+    padding: 40px 5%;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--saffron);
+  }
+
+  footer p { font-size: .82rem; color: var(--muted); }
+
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--saffron); }
+
+  /* ── WHATSAPP FLOATING BUTTON ── */
+  .wa-float {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    z-index: 999;
+    background: var(--green-wa);
+    color: #fff;
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+    text-decoration: none;
+    transition: transform .25s, box-shadow .25s;
+    animation: pulse 2.5s ease infinite;
+  }
+
+  .wa-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 32px rgba(37,211,102,0.6);
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.45); }
+    50% { box-shadow: 0 6px 36px rgba(37,211,102,0.7), 0 0 0 8px rgba(37,211,102,0.12); }
+  }
+
+  /* ── CONSULTATION MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(0,0,0,0.82);
+    backdrop-filter: blur(6px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px;
+    opacity: 0; pointer-events: none;
+    transition: opacity .3s;
+  }
+
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+  .modal {
+    background: var(--dark2);
+    border: 1px solid rgba(255,107,0,0.25);
+    border-radius: 20px;
+    padding: 44px 40px;
+    max-width: 580px;
+    width: 100%;
+    position: relative;
+    transform: translateY(30px) scale(.97);
+    transition: transform .35s cubic-bezier(.16,1,.3,1);
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-overlay.open .modal {
+    transform: translateY(0) scale(1);
+  }
+
+  .modal-close {
+    position: absolute; top: 18px; right: 22px;
+    background: none; border: none;
+    color: var(--muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color .2s;
+    line-height: 1;
+  }
+
+  .modal-close:hover { color: var(--saffron); }
+
+  .modal-header { margin-bottom: 28px; }
+
+  .modal-badge {
+    display: inline-block;
+    font-size: .7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--saffron);
+    background: rgba(255,107,0,0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(255,107,0,0.25);
+  }
+
+  .modal-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+  }
+
+  .modal-header p { color: var(--muted); font-size: .88rem; }
+
+  .modal .form-group label { color: #aaa; }
+
+  .modal-step { display: none; }
+  .modal-step.active { display: block; }
+
+  .step-indicator {
+    display: flex; gap: 8px; margin-bottom: 28px;
+  }
+
+  .step-dot {
+    height: 4px; border-radius: 2px;
+    background: rgba(255,255,255,0.12);
+    flex: 1;
+    transition: background .3s;
+  }
+
+  .step-dot.done { background: var(--saffron); }
+
+  .modal-footer-btns {
+    display: flex; gap: 12px; justify-content: flex-end; margin-top: 28px;
+  }
+
+  .btn-sm {
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: transform .2s, background .2s;
+  }
+
+  .btn-sm:active { transform: scale(.97); }
+
+  .btn-sm-primary { background: var(--saffron); color: #fff; }
+  .btn-sm-primary:hover { background: var(--saffron-light); }
+  .btn-sm-secondary { background: rgba(255,255,255,0.07); color: var(--white); }
+  .btn-sm-secondary:hover { background: rgba(255,255,255,0.12); }
+
+  /* success screen */
+  .success-screen {
+    text-align: center;
+    padding: 20px 0;
+    display: none;
+  }
+
+  .success-screen.show { display: block; }
+
+  .success-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: bounce .5s ease;
+  }
+
+  @keyframes bounce {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+
+  .success-screen h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  .success-screen p { color: var(--muted); font-size: .92rem; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── MOBILE NAV ── */
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: transform .3s, opacity .3s;
+  }
+
+  @media(max-width: 768px) {
+    .hamburger { display: flex; }
+
+    .nav-links {
+      position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: var(--dark2);
+      flex-direction: column;
+      padding: 24px 5%;
+      gap: 0;
+      border-bottom: 1px solid rgba(255,107,0,0.12);
+      transform: translateY(-110%);
+      transition: transform .3s ease;
+    }
+
+    .nav-links.open { transform: translateY(0); }
+
+    .nav-links li { border-bottom: 1px solid rgba(255,255,255,0.06); }
+
+    .nav-links a {
+      display: block;
+      padding: 14px 0;
+      font-size: 1rem;
+    }
+  }
+
+  input::placeholder, textarea::placeholder { color: #555; }
+
+  select option { background: var(--dark2); }
+</style>
 </head>
 <body>
 
-    <header>
-        <img src="logo.jpg" alt="BiharBrand Studio" style="width: 120px; margin-bottom: 20px;">
-        <h1>Build a Brand That <span>Bihar Remembers</span></h1>
-        <p class="hero-p">Premium branding, digital marketing, and financial consulting—built for local businesses with a national vision.</p>
-        <a href="https://wa.me/917667813830" class="cta-btn">Book Free Consultation</a>
-    </header>
+<!-- ── NAV ── -->
+<nav>
+  <a href="#home" class="nav-logo">BiharBrand Studio</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#clients">Clients</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#" class="nav-cta" id="navConsult" onclick="openModal(event)">Free Consultation</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-    <div class="trust-bar">
-        <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; color: #888;">
-            Trusted by Startups • CA Firms • Manufacturing Units • Local Leaders
-        </p>
+<!-- ── HERO ── -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero">
+    <div class="hero-badge">Bihar ka Dil. India ka Brand.</div>
+    <h1>Build a Brand<br>That <span>Bihar</span> Remembers</h1>
+    <p>Premium branding, digital marketing, and financial consulting — built for local businesses with a national vision.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-primary" onclick="openModal(event)">📅 Book Free Consultation</a>
+      <a href="#services" class="btn-outline">See Our Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section id="services">
+  <div class="section-label">What We Do</div>
+  <div class="section-title fade-in">Our Services</div>
+  <p class="section-sub fade-in">From branding to business finance — we are your all-in-one growth partner in Bihar.</p>
+
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <div class="service-icon">🔥</div>
+      <h3>Branding & Identity Design</h3>
+      <p>Logos, color systems, brand voice, and visual identity that make your business unmistakable in the market.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">📈</div>
+      <h3>Digital Marketing & Growth</h3>
+      <p>Social media management, paid ads, SEO, and content strategy designed to drive real results for your brand.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">🌐</div>
+      <h3>Website Development</h3>
+      <p>Fast, beautiful, and conversion-optimized websites that represent your brand and work around the clock.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">📊</div>
+      <h3>Audit & Financial Consulting</h3>
+      <p>Business audits, CA-level financial consulting, compliance, and planning — for sustainable business growth.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <div class="section-label">About Us</div>
+      <div class="section-title fade-in">Local Roots.<br>National <span style="color:var(--saffron)">Vision.</span></div>
+      <p style="color:var(--muted); margin-bottom:24px; font-size:.95rem;" class="fade-in">
+        BiharBrand Studio was built for businesses rooted in Bihar that dream bigger. We combine modern branding expertise with deep local understanding — so your brand speaks authentically to Bihar while scaling nationally.
+      </p>
+      <ul class="why-list fade-in">
+        <li><span class="check">✔</span> Local Understanding + Modern Branding Strategy</li>
+        <li><span class="check">✔</span> Business + Finance Combo Expertise under one roof</li>
+        <li><span class="check">✔</span> Affordable Premium Services with zero compromise on quality</li>
+        <li><span class="check">✔</span> End-to-end support — from idea to execution</li>
+        <li><span class="check">✔</span> Trusted by startups, CA firms & political campaigns</li>
+      </ul>
+      <div style="margin-top:32px;">
+        <a href="#" class="btn-primary" onclick="openModal(event)">Get Started Free →</a>
+      </div>
+    </div>
+    <div class="about-visual fade-in">
+      <div class="about-stat">
+        <span class="num">50+</span>
+        <span class="label">Brands Built</span>
+      </div>
+      <div class="divider"></div>
+      <div class="about-stat">
+        <span class="num">3+</span>
+        <span class="label">Years of Expertise</span>
+      </div>
+      <div class="divider"></div>
+      <div class="about-stat">
+        <span class="num">5★</span>
+        <span class="label">Client Satisfaction</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHO WE WORK WITH ── -->
+<section id="clients">
+  <div class="section-label fade-in">Who We Serve</div>
+  <div class="section-title fade-in">We Work With</div>
+  <p class="section-sub fade-in">Whether you're just starting or scaling up, we have the tools and expertise to help your brand grow.</p>
+  <div class="client-tags fade-in">
+    <span class="tag">🚀 Startups</span>
+    <span class="tag">📋 CA Firms</span>
+    <span class="tag">🏪 Local Businesses</span>
+    <span class="tag">🗳️ Political Campaigns</span>
+    <span class="tag">👤 Personal Brands</span>
+    <span class="tag">🏭 Manufacturing Units</span>
+    <span class="tag">🎓 Educational Institutes</span>
+    <span class="tag">🏥 Healthcare Clinics</span>
+    <span class="tag">🛒 E-commerce Brands</span>
+    <span class="tag">🍽️ Restaurants & F&B</span>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="section-label">Get In Touch</div>
+  <div class="section-title fade-in">Let's Build Something<br><span style="color:var(--saffron)">Together</span></div>
+  <p class="section-sub fade-in">Have a project in mind? Send us a message or book a free consultation call.</p>
+
+  <div class="contact-grid">
+    <div class="fade-in">
+      <div class="contact-info-item">
+        <div class="contact-icon">📧</div>
+        <div>
+          <h4>Email</h4>
+          <p><a href="mailto:biharbrandstudio@gmail.com">biharbrandstudio@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-icon">🌐</div>
+        <div>
+          <h4>Website</h4>
+          <p><a href="https://biharbrandstudio.in" target="_blank">biharbrandstudio.in</a></p>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-icon">📱</div>
+        <div>
+          <h4>WhatsApp</h4>
+          <p><a href="https://wa.me/917667813830" target="_blank">+91 76678 13830</a></p>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <h4>Location</h4>
+          <p>Bihar, India</p>
+        </div>
+      </div>
+      <div style="margin-top: 32px;">
+        <a href="#" class="btn-primary" onclick="openModal(event)" style="width:100%; text-align:center; display:block;">
+          📅 Book Free Consultation
+        </a>
+      </div>
     </div>
 
-    <section class="section-padding">
-        <h2 style="text-align: center;">Our Premium Solutions</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Branding & Identity</h3>
-                <p>Logos, color systems, and visual storytelling that make your brand unmistakable.</p>
-            </div>
-            <div class="card">
-                <h3>Digital Growth</h3>
-                <p>Social media management and high-ROI Meta Ads specifically for the Bihar market.</p>
-            </div>
-            <div class="card">
-                <h3>Financial Strategy</h3>
-                <p>CA-level audits and financial consulting to ensure your growth is sustainable.</p>
-            </div>
+    <div class="contact-form-box fade-in">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.3rem; margin-bottom:24px;">Send a Message</h3>
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="Rahul Kumar" id="contactName">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email / Brand ID</label>
+          <input type="email" placeholder="you@yourbrand.com" id="contactEmail">
         </div>
-    </section>
+        <div class="form-group">
+          <label>WhatsApp Number</label>
+          <input type="tel" placeholder="+91 XXXXX XXXXX" id="contactPhone">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Service Needed</label>
+        <select id="contactService">
+          <option value="">Select a service...</option>
+          <option>Branding & Identity Design</option>
+          <option>Digital Marketing & Growth</option>
+          <option>Website Development</option>
+          <option>Audit & Financial Consulting</option>
+          <option>Multiple Services</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell us about your business and what you need..." id="contactMsg"></textarea>
+      </div>
+      <button class="btn-primary" style="width:100%;" onclick="submitContactForm()">Send Message →</button>
+    </div>
+  </div>
+</section>
 
-    <section class="stats">
-        <div class="stat-item">
-            <h2>50+</h2>
-            <p>Brands Built</p>
-        </div>
-        <div class="stat-item">
-            <h2>3+</h2>
-            <p>Years Excellence</p>
-        </div>
-        <div class="stat-item">
-            <h2>100%</h2>
-            <p>Local Insight</p>
-        </div>
-    </section>
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">BiharBrand Studio</div>
+  <p>Bihar ka Dil. India ka Brand. &copy; 2025</p>
+  <p>Made with ❤️ in Bihar &nbsp;|&nbsp; <a href="mailto:biharbrandstudio@gmail.com">biharbrandstudio@gmail.com</a></p>
+</footer>
 
-    <section class="section-padding">
-        <div style="border-left: 4px solid var(--primary); padding-left: 30px;">
-            <h2>Local Roots. National Vision.</h2>
-            <p style="max-width: 800px; color: #ccc;">
-                Inspired by the industrial leadership of groups like Ripuraj, BiharBrand Studio is dedicated to the digital upliftment of Bettiah and beyond. We combine financial precision with creative marketing to help Bihar's brands scale globally.
-            </p>
+<!-- ── WHATSAPP FLOATING BUTTON ── -->
+<a href="https://wa.me/917667813830" target="_blank" class="wa-float" title="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.002 2.667C8.638 2.667 2.667 8.638 2.667 16c0 2.352.629 4.56 1.729 6.469L2.667 29.333l7.052-1.695A13.288 13.288 0 0016.002 29.333C23.364 29.333 29.333 23.362 29.333 16c0-7.362-5.97-13.333-13.331-13.333zm0 24A10.64 10.64 0 019.41 23.64l-.38-.226-3.937.946.982-3.826-.247-.394A10.62 10.62 0 015.333 16c0-5.88 4.786-10.667 10.667-10.667S26.667 10.12 26.667 16c0 5.882-4.785 10.667-10.665 10.667zm5.835-7.993c-.32-.16-1.893-.933-2.187-1.04-.293-.107-.507-.16-.72.16-.213.32-.827 1.04-.947 1.253-.12.214-.24.24-.56.08-.32-.16-1.333-.49-2.54-1.567-.94-.84-1.573-1.88-1.76-2.2-.187-.32-.02-.493.14-.653.144-.143.32-.373.48-.56.16-.186.213-.32.32-.533.107-.214.053-.4-.027-.56-.08-.16-.72-1.74-.987-2.387-.253-.613-.52-.533-.72-.533-.187-.007-.4-.013-.613-.013a1.18 1.18 0 00-.853.4c-.293.32-1.12 1.093-1.12 2.667s1.147 3.093 1.307 3.307c.16.213 2.26 3.453 5.48 4.84.773.333 1.373.533 1.84.68.773.24 1.48.207 2.04.127.62-.093 1.893-.773 2.16-1.52.267-.747.267-1.387.187-1.52-.08-.133-.293-.213-.613-.373z"/>
+  </svg>
+</a>
+
+<!-- ── CONSULTATION MODAL ── -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modalBox">
+    <button class="modal-close" onclick="closeModal()">×</button>
+
+    <!-- Step Indicator -->
+    <div class="step-indicator">
+      <div class="step-dot done" id="dot1"></div>
+      <div class="step-dot" id="dot2"></div>
+      <div class="step-dot" id="dot3"></div>
+    </div>
+
+    <div class="modal-header">
+      <div class="modal-badge">Free Consultation</div>
+      <h2>Let's Grow Your Brand</h2>
+      <p>Tell us a little about yourself and your business — we'll reach out within 24 hours.</p>
+    </div>
+
+    <!-- Step 1: Basic Info -->
+    <div class="modal-step active" id="step1">
+      <div class="form-group">
+        <label>Your Full Name *</label>
+        <input type="text" id="m_name" placeholder="e.g. Rahul Kumar">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>WhatsApp Number *</label>
+          <input type="tel" id="m_phone" placeholder="+91 XXXXX XXXXX">
         </div>
-    </section>
+        <div class="form-group">
+          <label>Your City</label>
+          <input type="text" id="m_city" placeholder="e.g. Patna, Muzaffarpur">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Business / Brand Name</label>
+        <input type="text" id="m_brand" placeholder="e.g. My Awesome Brand">
+      </div>
+      <div class="modal-footer-btns">
+        <button class="btn-sm btn-sm-primary" onclick="goStep(2)">Next →</button>
+      </div>
+    </div>
 
-    <footer>
-        <p>BiharBrand Studio © 2026 | Made with ❤️ in Bihar</p>
-        <p style="font-size: 0.9rem; color: #666;">Contact: biharbrandstudio@gmail.com | +91 76678 13830</p>
-    </footer>
+    <!-- Step 2: Business Details -->
+    <div class="modal-step" id="step2">
+      <div class="form-group">
+        <label>Brand Email ID / Business Email *</label>
+        <input type="email" id="m_email" placeholder="e.g. info@yourbrand.com">
+      </div>
+      <div class="form-group">
+        <label>Social Media Page / Handle</label>
+        <input type="text" id="m_social" placeholder="Instagram, Facebook, LinkedIn URL or @handle">
+      </div>
+      <div class="form-group">
+        <label>Website URL (if any)</label>
+        <input type="text" id="m_website" placeholder="https://yourbusiness.com">
+      </div>
+      <div class="form-group">
+        <label>Type of Business</label>
+        <select id="m_biztype">
+          <option value="">Select...</option>
+          <option>Startup / New Venture</option>
+          <option>Established Local Business</option>
+          <option>CA Firm / Finance</option>
+          <option>Political Campaign</option>
+          <option>Personal Brand / Influencer</option>
+          <option>E-commerce</option>
+          <option>Educational Institute</option>
+          <option>Healthcare / Clinic</option>
+          <option>Restaurant / F&B</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="modal-footer-btns">
+        <button class="btn-sm btn-sm-secondary" onclick="goStep(1)">← Back</button>
+        <button class="btn-sm btn-sm-primary" onclick="goStep(3)">Next →</button>
+      </div>
+    </div>
 
+    <!-- Step 3: Goals & Service -->
+    <div class="modal-step" id="step3">
+      <div class="form-group">
+        <label>Which service are you interested in? *</label>
+        <select id="m_service">
+          <option value="">Select a service...</option>
+          <option>Branding & Identity Design</option>
+          <option>Digital Marketing & Growth</option>
+          <option>Website Development</option>
+          <option>Audit & Financial Consulting</option>
+          <option>Multiple / Full Package</option>
+          <option>Not Sure — Need Guidance</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Monthly Budget Range</label>
+        <select id="m_budget">
+          <option value="">Select budget...</option>
+          <option>Under ₹5,000</option>
+          <option>₹5,000 – ₹15,000</option>
+          <option>₹15,000 – ₹30,000</option>
+          <option>₹30,000 – ₹60,000</option>
+          <option>₹60,000+</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>What's your biggest challenge right now?</label>
+        <textarea id="m_challenge" placeholder="e.g. No online presence, need more customers, want to rebrand..." style="min-height:80px;"></textarea>
+      </div>
+      <div class="form-group">
+        <label>How did you hear about us?</label>
+        <select id="m_source">
+          <option value="">Select...</option>
+          <option>Instagram / Facebook</option>
+          <option>Google Search</option>
+          <option>WhatsApp / Referral</option>
+          <option>Friend / Word of Mouth</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="modal-footer-btns">
+        <button class="btn-sm btn-sm-secondary" onclick="goStep(2)">← Back</button>
+        <button class="btn-sm btn-sm-primary" onclick="submitModal()">Submit & Book Call 🚀</button>
+      </div>
+    </div>
+
+    <!-- Success Screen -->
+    <div class="success-screen" id="successScreen">
+      <div class="success-icon">🎉</div>
+      <h3>You're All Set!</h3>
+      <p style="margin-bottom:12px;">Thank you! We'll contact you within <strong style="color:var(--saffron)">24 hours</strong> to schedule your free consultation call.</p>
+      <p style="margin-bottom:28px; color:var(--muted); font-size:.85rem;">Meanwhile, you can also reach us directly on WhatsApp.</p>
+      <a href="https://wa.me/917667813830?text=Hi%20BiharBrand%20Studio!%20I%20just%20booked%20a%20free%20consultation." target="_blank" class="btn-primary" style="display:inline-block; margin-bottom:12px;">
+        💬 Chat on WhatsApp Now
+      </a>
+      <br>
+      <button class="btn-sm btn-sm-secondary" onclick="closeModal()" style="margin-top:12px;">Close</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // ── HAMBURGER ──
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // ── SCROLL FADE ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ── MODAL ──
+  let currentStep = 1;
+
+  function openModal(e) {
+    if (e) e.preventDefault();
+    document.getElementById('modalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    currentStep = 1;
+    showStep(1);
+    document.getElementById('successScreen').classList.remove('show');
+    document.querySelectorAll('.modal-step').forEach(s => s.style.display = '');
+    document.querySelector('.modal-header').style.display = '';
+    document.querySelector('.step-indicator').style.display = '';
+  }
+
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('modalOverlay')) closeModal();
+  }
+
+  function showStep(n) {
+    for (let i = 1; i <= 3; i++) {
+      document.getElementById('step' + i).classList.toggle('active', i === n);
+      document.getElementById('dot' + i).classList.toggle('done', i <= n);
+    }
+    currentStep = n;
+  }
+
+  function goStep(n) {
+    // Basic validation on forward
+    if (n > currentStep) {
+      if (currentStep === 1) {
+        if (!document.getElementById('m_name').value.trim()) { alert('Please enter your name.'); return; }
+        if (!document.getElementById('m_phone').value.trim()) { alert('Please enter your WhatsApp number.'); return; }
+      }
+      if (currentStep === 2) {
+        if (!document.getElementById('m_email').value.trim()) { alert('Please enter your brand/business email.'); return; }
+      }
+    }
+    showStep(n);
+  }
+
+  function submitModal() {
+    if (!document.getElementById('m_service').value) { alert('Please select a service you are interested in.'); return; }
+
+    // Collect all data
+    const data = {
+      name: document.getElementById('m_name').value,
+      phone: document.getElementById('m_phone').value,
+      city: document.getElementById('m_city').value,
+      brand: document.getElementById('m_brand').value,
+      email: document.getElementById('m_email').value,
+      social: document.getElementById('m_social').value,
+      website: document.getElementById('m_website').value,
+      bizType: document.getElementById('m_biztype').value,
+      service: document.getElementById('m_service').value,
+      budget: document.getElementById('m_budget').value,
+      challenge: document.getElementById('m_challenge').value,
+      source: document.getElementById('m_source').value,
+    };
+
+    console.log('Consultation Form Data:', data);
+
+    // Hide steps, show success
+    document.querySelectorAll('.modal-step').forEach(s => s.style.display = 'none');
+    document.querySelector('.modal-header').style.display = 'none';
+    document.querySelector('.step-indicator').style.display = 'none';
+    document.getElementById('successScreen').classList.add('show');
+  }
+
+  // Contact form
+  function submitContactForm() {
+    const name = document.getElementById('contactName').value.trim();
+    const email = document.getElementById('contactEmail').value.trim();
+    if (!name || !email) { alert('Please fill in at least your name and email.'); return; }
+    alert(`Thank you, ${name}! We've received your message and will respond within 24 hours.`);
+    ['contactName','contactEmail','contactPhone','contactService','contactMsg'].forEach(id => document.getElementById(id).value = '');
+  }
+
+  // Close modal on Escape
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
 </body>
 </html>
