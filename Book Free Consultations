@@ -75,7 +75,7 @@
     <input type="text" name="name" placeholder="Your Name" required>
     <input type="tel" name="phone" placeholder="Phone Number" required>
     
-    <input type="hidden" name="subject" value="New Free Consultation Request">
+    <input type="hidden" name="subject" value="New Consultation Request">
 
     <button type="submit" class="btn-primary" style="width:100%; margin-top:10px; border-radius:8px">Submit Request</button>
 </form>
