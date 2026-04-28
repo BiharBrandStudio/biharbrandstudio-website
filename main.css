@@ -22,3 +22,25 @@
   box-shadow: 0 15px 35px rgba(255, 102, 0, 0.2); /* Your Brand Orange Glow */
   border-color: #ff6600;
 }
+/* This makes the whole page feel like it has depth */
+body {
+  perspective: 1200px; 
+}
+
+/* This makes your service boxes pop out when you hover */
+.service-card {
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease-out; /* Makes the movement smooth */
+}
+
+/* This is the '3D Flip' when the section first appears on screen */
+.reveal {
+  opacity: 0;
+  transform: rotateX(-20deg) translateY(50px); /* Tilted back and down */
+  transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: rotateX(0deg) translateY(0); /* Flips forward to flat */
+}
