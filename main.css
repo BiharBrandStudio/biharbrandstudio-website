@@ -1,7 +1,24 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    margin: 0;
-    padding: 20px;
+/* 1. Scroll Reveal Animation */
+.reveal {
+  position: relative;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 2. Ripuraj-style Card Hover (Applied to your Service Cards) */
+.service-card {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 15px 35px rgba(255, 102, 0, 0.2); /* Your Brand Orange Glow */
+  border-color: #ff6600;
 }
